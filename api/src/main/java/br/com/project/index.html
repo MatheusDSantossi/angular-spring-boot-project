@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CORS test</title>
+    <script>
+        // Makes a GET request
+        fetch('http://localhost:8080')
+
+        // Convert the response to JSON
+        .then(data => data.json())
+
+        // Shows to clients
+        //.then(data => document.body.innerHTML = JSON.stringify(data));
+        .then(data => console.log(data));
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
