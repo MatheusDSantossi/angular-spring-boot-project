@@ -1,5 +1,7 @@
 import { Injectable } from '@angular/core';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { Client } from '../model/Client';
 
 @Injectable({
   providedIn: 'root'
@@ -10,6 +12,11 @@ export class ClientService {
   private url:string = 'http://localhost:8080';
 
   // Constructor
-  constructor(private http: any) { }
-  // constructor(private http: HttpClientModule) { }
+  constructor(private http: HttpClient) { }
+
+
+  // Method to select all clients
+  select():Observable<Client[]>{
+    return this.http.get<Client[]>(this.url);
+  }
 }

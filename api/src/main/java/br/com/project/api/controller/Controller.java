@@ -13,8 +13,9 @@ import org.springframework.web.bind.annotation.RestController;
 import br.com.project.api.model.Client;
 import br.com.project.api.repository.RepositoryClient;
 
+// @CrossOrigin(origins = "*")
+@CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@CrossOrigin(origins = "*")
 public class Controller {
 
     @Autowired
