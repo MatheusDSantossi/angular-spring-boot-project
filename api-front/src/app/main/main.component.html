@@ -2,16 +2,23 @@
 
 <form>
     <img src="assets/client.png">
+    <input type="text" name="name" id="name" placeholder="Name" class="form-control" [(ngModel)]="selectedClient.name">
+    <input type="number" name="age" id="age" placeholder="Age" class="form-control" [(ngModel)]="selectedClient.age">
+    <input type="text" name="city" id="city" placeholder="City" class="form-control" [(ngModel)]="selectedClient.city">
 
-    <input type="text" name="name" id="" placeholder="Name" class="form-control">
-    <input type="number" name="name" id="" placeholder="Age" class="form-control">
-    <input type="text" name="name" id="" placeholder="City" class="form-control">
-
-    <input type="button" value="Register" *ngIf="btnRegister" class="btn btn-primary">
+    <input type="button" value="Register" *ngIf="btnRegister" class="btn btn-primary" (click)="register()">
     <input type="button" value="Edit" *ngIf="!btnRegister" class="btn btn-warning">
     <input type="button" value="Remove" *ngIf="!btnRegister" class="btn btn-danger">
     <input type="button" value="Cancel" *ngIf="!btnRegister" class="btn btn-secondary">
 </form>
+
+<!-- Display updated name, age, and city below the form dynamically -->
+<!-- <div *ngIf="selectedClient.name || selectedClient.age || selectedClient.city" class="client-info">
+    <h3>Client Information:</h3>
+    <p><strong>Name:</strong> {{ selectedClient.name || 'N/A' }}</p>
+    <p><strong>Age:</strong> {{ selectedClient.age || 'N/A' }}</p>
+    <p><strong>City:</strong> {{ selectedClient.city || 'N/A' }}</p>
+</div> -->
 
 <table class="table">
     <thead>
