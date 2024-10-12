@@ -24,4 +24,15 @@ export class ClientService {
   register(obj:Client):Observable<Client> {
     return this.http.post<Client>(this.url, obj);
   }
+
+  // Method to edit a client
+  edit(obj:Client):Observable<Client> {
+    return this.http.put<Client>(this.url, obj);
+  }
+
+  // Method to remove a client
+  remove(code:number):Observable<void> {
+    return this.http.delete<void>(this.url + '/' + code);
+  }
+
 }

@@ -2,14 +2,14 @@
 
 <form>
     <img src="assets/client.png">
-    <input type="text" name="name" id="name" placeholder="Name" class="form-control" [(ngModel)]="selectedClient.name">
-    <input type="number" name="age" id="age" placeholder="Age" class="form-control" [(ngModel)]="selectedClient.age">
-    <input type="text" name="city" id="city" placeholder="City" class="form-control" [(ngModel)]="selectedClient.city">
+    <input type="text" name="name" id="name" placeholder="Name" class="form-control" [(ngModel)]="client.name">
+    <input type="number" name="age" id="age" placeholder="Age" class="form-control" [(ngModel)]="client.age">
+    <input type="text" name="city" id="city" placeholder="City" class="form-control" [(ngModel)]="client.city">
 
     <input type="button" value="Register" *ngIf="btnRegister" class="btn btn-primary" (click)="register()">
-    <input type="button" value="Edit" *ngIf="!btnRegister" class="btn btn-warning">
-    <input type="button" value="Remove" *ngIf="!btnRegister" class="btn btn-danger">
-    <input type="button" value="Cancel" *ngIf="!btnRegister" class="btn btn-secondary">
+    <input type="button" value="Edit" *ngIf="!btnRegister" class="btn btn-warning" (click)="editClient()">
+    <input type="button" value="Remove" *ngIf="!btnRegister" class="btn btn-danger" (click)="removeClient()">
+    <input type="button" value="Cancel" *ngIf="!btnRegister" class="btn btn-secondary" (click)="cancelEdit()">
 </form>
 
 <!-- Display updated name, age, and city below the form dynamically -->
@@ -20,7 +20,7 @@
     <p><strong>City:</strong> {{ selectedClient.city || 'N/A' }}</p>
 </div> -->
 
-<table class="table">
+<table class="table" *ngIf="tableVisibility">
     <thead>
         <tr>
             <th>#</th>
@@ -37,7 +37,7 @@
             <td>{{c.name}}</td>
             <td>{{c.age}}</td>
             <td>{{c.city}}</td>
-            <td><button class="btn btn-success">Select</button></td>
+            <td><button class="btn btn-success" (click)="selectClient(i)">Select</button></td>
         </tr>
     </tbody>
 </table>
